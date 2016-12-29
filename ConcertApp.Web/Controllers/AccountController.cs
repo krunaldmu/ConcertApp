@@ -60,14 +60,28 @@ namespace ConcertApp.Web.Controllers
             string email = Request["email"];
             string password = Request["password"];
 
-            var userId = context.Users.Where(x => x.EmailAddress == email);
+            var user = context.Users.FirstOrDefault(x => x.EmailAddress == email);
 
-            if (userId.Any())
+            var isPasswordCorrect = user != null && user.Password.Equals(password);
+
+            if (isPasswordCorrect == false)
             {
+                return false;
+            }
+            else
+            {
+                Session["fullname"] = user.FirstName + " " + user.LastName;
+                Session["emailAddress"] = user.EmailAddress;
+
                 return true;
             }
+        }
 
-            return false;
+        public bool SignOut()
+        {
+            Session.Abandon();
+
+            return true;
         }
     }
 }
