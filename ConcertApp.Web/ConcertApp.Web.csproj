@@ -138,6 +138,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -146,9 +147,14 @@
     <Compile Include="Migrations\201612291450067_Initial.Designer.cs">
       <DependentUpon>201612291450067_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612291523584_AddedUserEntity.cs" />
+    <Compile Include="Migrations\201612291523584_AddedUserEntity.Designer.cs">
+      <DependentUpon>201612291523584_AddedUserEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Concert.cs" />
     <Compile Include="Models\ConcertAppContext.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +192,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -201,6 +208,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612291450067_Initial.resx">
       <DependentUpon>201612291450067_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612291523584_AddedUserEntity.resx">
+      <DependentUpon>201612291523584_AddedUserEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
