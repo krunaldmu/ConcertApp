@@ -72,6 +72,7 @@ namespace ConcertApp.Web.Controllers
             {
                 Session["fullname"] = user.FirstName + " " + user.LastName;
                 Session["emailAddress"] = user.EmailAddress;
+                Session["isAdmin"] = user.IsAdmin;
 
                 return true;
             }

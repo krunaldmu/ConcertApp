@@ -151,6 +151,10 @@
     <Compile Include="Migrations\201612291523584_AddedUserEntity.Designer.cs">
       <DependentUpon>201612291523584_AddedUserEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612291654271_AddedIsAdmin.cs" />
+    <Compile Include="Migrations\201612291654271_AddedIsAdmin.Designer.cs">
+      <DependentUpon>201612291654271_AddedIsAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Concert.cs" />
     <Compile Include="Models\ConcertAppContext.cs" />
@@ -212,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612291523584_AddedUserEntity.resx">
       <DependentUpon>201612291523584_AddedUserEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612291654271_AddedIsAdmin.resx">
+      <DependentUpon>201612291654271_AddedIsAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
