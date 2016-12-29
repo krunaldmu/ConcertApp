@@ -32,11 +32,12 @@ namespace ConcertApp.Web.Controllers
                 {
                     Title = name,
                     Category = category,
-                    DateTime = dateTime,
                     Location = location,
-                    Price = price,
                     Description = description
                 };
+
+                concert.DateTime = DateTime.Parse(dateTime);
+                concert.Price = decimal.Parse(price);
 
                 context.Concerts.AddOrUpdate(concert);
                 context.SaveChanges();
