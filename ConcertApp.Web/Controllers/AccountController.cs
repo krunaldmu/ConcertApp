@@ -17,6 +17,11 @@ namespace ConcertApp.Web.Controllers
             return View();
         }
 
+        public ActionResult SignIn()
+        {
+            return View();
+        }
+
         [HttpPost]
         public string RegisterUser(ConcertAppContext context)
         {
@@ -45,9 +50,24 @@ namespace ConcertApp.Web.Controllers
             {
 
             }
-
-
+            
             return "User Registered Successfully";
+        }
+
+        [HttpPost]
+        public bool AuthenticateUser(ConcertAppContext context)
+        {
+            string email = Request["email"];
+            string password = Request["password"];
+
+            var userId = context.Users.Where(x => x.EmailAddress == email);
+
+            if (userId.Any())
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
