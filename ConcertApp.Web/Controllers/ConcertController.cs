@@ -132,7 +132,7 @@ namespace ConcertApp.Web.Controllers
             return View( db.Concerts.ToList());
         }
 
-//        public ActionResult Index(string searchBy, string search)
+//        public ActionResult SearchIndex(string searchBy, string search)
 //        {
 //            if (searchBy == "Category")
 //                return View(db.Concerts.Where(x => x.Category == search || search == null).ToList());

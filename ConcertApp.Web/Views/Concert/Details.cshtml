@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.Title)</h2>
 
 <div>
     <h4>Concert</h4>
@@ -62,5 +62,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ConcertId }) |
-    @Html.ActionLink("Back to List", "Index")
+@*    @Html.ActionLink("Back to List", "Index")*@
+    @Html.ActionLink("Back to List", null, null, null, new { href = Request.UrlReferrer })
 </p>
