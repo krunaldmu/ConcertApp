@@ -39,39 +39,48 @@
             </th>
             <th></th>
         </tr>
-
-        @foreach (var item in Model)
+        @if (!Model.Any())
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                @*<td>
+                <td colspan="6"> No Results Found </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    @*<td>
                         @Html.ActionLink("Edit", "Edit", new { id=item.ConcertId }) |
                         @Html.ActionLink("Details", "Details", new { id=item.ConcertId }) |
                         @Html.ActionLink("Delete", "Delete", new { id=item.ConcertId })
                     </td>*@
-                     <td>
+                    <td>
                         @*@Html.ActionLink("Edit", "Edit","Concert", new { id = item.ConcertId },null) |*@
-                        @Html.ActionLink("Details", "Details", "Concert", new { id = item.ConcertId }, null)
+                        @Html.ActionLink("Details", "Details", "Concert", new {id = item.ConcertId}, null)
                         @*@Html.ActionLink("Delete", "Delete", "Concert", new { id = item.ConcertId }, null)*@
                     </td>
-            </tr>
+                </tr>
+            }
         }
+            
 
-    </table>
+    </table></div>

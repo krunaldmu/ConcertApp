@@ -12,9 +12,20 @@ namespace ConcertApp.Web.Controllers
 
         private ConcertApp.Web.Models.ConcertAppContext db = new ConcertAppContext();
 
-        public ActionResult Index()
+        public ActionResult Index(string searchBy, string search)
         {
-            return View(db.Concerts.ToList());
+            if (searchBy == "Title")
+            {
+                return View(db.Concerts.Where(x => x.Title.Contains(search) || search == null).ToList());
+            }
+            else if (searchBy == "Category")
+            {
+                return View(db.Concerts.Where(x => x.Category.Contains(search) || search == null).ToList());
+            }
+            else
+            {
+                return View(db.Concerts.ToList());
+            }
         }
 
         public ActionResult About()
