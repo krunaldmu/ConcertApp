@@ -52,3 +52,4 @@ c:\users\krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\
 c:\users\krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.csproj.GenerateResource.Cache
 c:\users\krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.AddedUserEntity.resources
 c:\users\krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.AddedIsAdmin.resources
+C:\Users\Krunal\Documents\Visual Studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.AddMigration.resources

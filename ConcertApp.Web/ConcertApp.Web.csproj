@@ -156,10 +156,15 @@
     <Compile Include="Migrations\201612291654271_AddedIsAdmin.Designer.cs">
       <DependentUpon>201612291654271_AddedIsAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702251359561_Add-Migration.cs" />
+    <Compile Include="Migrations\201702251359561_Add-Migration.Designer.cs">
+      <DependentUpon>201702251359561_Add-Migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Concert.cs" />
     <Compile Include="Models\ConcertAppContext.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +210,11 @@
     <Content Include="Views\Concert\Index.cshtml" />
     <Content Include="Views\Concert\Details.cshtml" />
     <Content Include="Views\Concert\Delete.cshtml" />
+    <Content Include="Views\Account\LoggedIn.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -226,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612291654271_AddedIsAdmin.resx">
       <DependentUpon>201612291654271_AddedIsAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702251359561_Add-Migration.resx">
+      <DependentUpon>201702251359561_Add-Migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
