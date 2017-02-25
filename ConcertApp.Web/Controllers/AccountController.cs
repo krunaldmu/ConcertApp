@@ -58,12 +58,13 @@ namespace ConcertApp.Web.Controllers
         {
             if (Session["UserId"] != null)
             {
-                return View();
+                return RedirectToAction("LoggedIn");
             }
-            else
-            {
-                return RedirectToAction("SignIn");
-            }
+            //else
+            //{
+            //    return RedirectToAction("LoggedIn");
+            //}
+            return null;
         }
 
         [HttpPost]
@@ -99,7 +100,7 @@ namespace ConcertApp.Web.Controllers
         }
 
         [HttpPost]
-        public bool AuthenticateUser(ConcertAppContext context)
+        public ActionResult AuthenticateUser(ConcertAppContext context)
         {
             string email = Request["email"];
             string password = Request["password"];
@@ -110,15 +111,18 @@ namespace ConcertApp.Web.Controllers
 
             if (isPasswordCorrect == false)
             {
-                return false;
+                Session["userNotFound"] = true;
+                return RedirectToAction("SignIn");
             }
             else
             {
                 Session["fullname"] = user.FirstName + " " + user.LastName;
                 Session["emailAddress"] = user.EmailAddress;
                 Session["isAdmin"] = user.IsAdmin;
-
-                return true;
+                Session["userId"] = user.UserId;
+                Session["isLoggedIn"] = true;
+                
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -188,11 +192,13 @@ namespace ConcertApp.Web.Controllers
             return View("Index");
         }
 
-        public bool SignOut()
+        public ActionResult SignOut()
         {
+            Session["isLoggedIn"] = false;
             Session.Abandon();
 
-            return true;
+            return RedirectToAction("Index","Home");
         }
+
     }
 }

@@ -24,10 +24,26 @@
                     @*                    <li>@Html.ActionLink("About", "About", "Home")</li>*@
                     @*                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                    <li>@Html.ActionLink("Sign In", "SignIn", "Account")</li>
-                    <li>@Html.ActionLink("Manage Concerts", "Index", "Concert")</li>
-                    <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
+
+                    @if (Session["isLoggedIn"] != null && Session["isLoggedIn"].ToString() == "True")
+                    {
+                        <li>@Html.ActionLink("Sign Out", "SignOut", "Account")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Sign In", "SignIn", "Account")</li>
+                    }
+
+                    @if (Session["isLoggedIn"] != null && Session["isAdmin"].ToString() == "True")
+                    {
+                        <li>@Html.ActionLink("Manage Concerts", "Index", "Concert")</li>
+                        <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
+                    }
                     @*                    <li>@Html.ActionLink("Add Concert", "AddConcert", "Concert")</li>*@
+                    @if (Session["userId"] != null)
+                    {
+                        <li>Hello @Session["fullname"].ToString()</li>
+                    }
                 </ul>
                 <div class="col-sm-3 col-md-3 pull-right">
                     @*<form class="navbar-form" role="search">
