@@ -1,17 +1,4 @@
-﻿Skip to content
-Features Explore Pricing
-This repository
-Search
-Sign in or Sign up
-Watch 33  Star 250  Fork 105 mateuszmarkowski/jQuery-Seat-Charts
-Code  Issues 8  Pull requests 2  Projects 0  Pulse  Graphs
-Branch: master Find file Copy pathjQuery-Seat-Charts/jquery.seat-charts.js
-f43f2a1  on Dec 29, 2016
-@mateuszmarkowski mateuszmarkowski version bump
-3 contributors @mateuszmarkowski @jerviscui @sergejkaravajnij
-RawBlameHistory     
-628 lines (527 sloc)  20 KB
-/*!
+﻿/*!
  * jQuery-Seat-Charts v1.1.5
  * https://github.com/mateuszmarkowski/jQuery-Seat-Charts
  *
@@ -638,5 +625,3 @@ RawBlameHistory
 	
 	
 })(jQuery);
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help

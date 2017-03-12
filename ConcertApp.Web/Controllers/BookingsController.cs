@@ -19,9 +19,9 @@ namespace ConcertApp.Web.Controllers
         public ActionResult Index()
         {
             int userid = -1;
-            //if (Session["UserID"].ToString() != null)
+            if (Session["UserID"].ToString() != null)
             {
-                //userid = Convert.ToInt16(Session["UserID"].ToString());
+                userid = Convert.ToInt16(Session["UserID"].ToString());
                 return View(db.Bookings.Where(b => b.UserId == userid).ToList());
             }
             return View(db.Bookings.ToList());
@@ -64,7 +64,7 @@ namespace ConcertApp.Web.Controllers
                 db.Bookings.Add(Booking);
                 db.SaveChanges();
 
-                int id = Convert.ToInt16(@Session["UserID"].ToString());
+               int id = Convert.ToInt16(@Session["UserID"].ToString());
 
                 string name = (from n in db.Users
                                where n.UserId == id

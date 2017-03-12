@@ -4,7 +4,12 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Select your seats for the concert</h2>
+
+<!-- Seats will be displayed here-->
+<div id="seat-map"></div>
+
+<div id="NoOfSeats"></div>
 
 @using (Html.BeginForm()) 
 {
@@ -14,6 +19,14 @@
         <h4>Booking</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.BookingId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.TextBoxFor(model => model.BookingId, new {@Value ="1"})*@
+                @Html.EditorFor(model => model.BookingId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookingId, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.ConcertId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -57,3 +70,96 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section scripts{
+<script src="~/Scripts/jquery.seat-charts.js"></script>
+    <script>
+        var seats = [];
+        $(document).ready(function() {
+            var sc = $('#seat-map').seatCharts({
+                map: [
+                    'aaaaaaaaaaaaaaaaaaaa',
+                    'aaaaaaaaaaaaaaaaaaaa',
+                    'aaaaaaaaaaaaaaaaaaaa',
+                    'aaaaaaaaaaaaaaaaaaaa',
+                    'bbbbbbbbb__bbbbbbbbb',
+                    'bbbbbbbbb__bbbbbbbbb',
+                    'bbbbbbbbb__bbbbbbbbb',
+                    'cccccccccccccccccccc'
+                ],
+                naming: {
+                    top: true,
+                    columns: [
+                        '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16',
+                        '17', '18', '19', '20'
+                    ],
+                    rows: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+
+                },
+                seats: {
+                    a: {
+                        price: 7.99,
+                        classes: 'front-seat' //your custom CSS class
+                    },
+                    b: {
+                        price: 10.99,
+                        classes: 'front-seat'
+                    }
+                },
+                click: function() {
+                    if (this.status() == 'available') {
+                        //do some stuff, i.e. add to the cart
+                        seats.push(this.settings.id.toString());
+                        document.getElementById('Seats').value = seats.toString();
+                        document.getElementById('NoOfSeats')
+                            .innerHTML = "You have selected : " + seats.length + " seats.";
+                        //document.getElementById('Amount').value = CalculateAmount(seats.length);
+                        return 'selected';
+                    } else if (this.status() == 'selected') {
+                        //seat has been vacated
+                        return 'available';
+                    } else if (this.status() == 'unavailable') {
+                        //seat has been already booked
+                        return 'unavailable';
+                    } else {
+                        return this.style();
+                    }
+                }
+            });
+
+            //Make all available 'c' seats unavailable
+            sc.find('c.available').status('unavailable');
+
+            /*
+            Get seats with ids 2_6, 1_7 (more on ids later on),
+            put them in a jQuery set and change some css
+            */
+            sc.get(['2_6', '1_7']).node().css({
+                color: '#ffcfcf'
+            });
+
+            //console.log('Seat 1_2 costs ' + sc.get('1_2').data().price + ' and is currently ' + sc.status('1_2'));
+        });
+
+        function CalculateAmount(num) {
+            return num * 7.99;
+        }
+
+        //$(window).load(function() {
+        //    $.ajax({
+        //        url: '/User/GetUserID',
+        //        method: 'GET',
+        //        success: function(data) {
+        //            if (data == 0) {
+        //                alert('You must be logged in!');
+        //                return window.location.href = "/User/Login";
+        //            } else {
+        //                return document.getElementById('UserId').value = data;
+        //            }
+
+        //        }
+        //    });
+        //});
+
+    </script>
+}

@@ -21,11 +21,13 @@ namespace ConcertApp.Web
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js",
+                      "~/Scripts/jquery.seat-charts.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/flatfly.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/jquery.seat-charts.css"));
         }
     }
 }
