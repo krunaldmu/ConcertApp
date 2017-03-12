@@ -139,6 +139,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\ConcertController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -160,9 +161,24 @@
     <Compile Include="Migrations\201702251359561_Add-Migration.Designer.cs">
       <DependentUpon>201702251359561_Add-Migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703021936089_added seats class.cs" />
+    <Compile Include="Migrations\201703021936089_added seats class.Designer.cs">
+      <DependentUpon>201703021936089_added seats class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703021952463_Added Booking Class.cs" />
+    <Compile Include="Migrations\201703021952463_Added Booking Class.Designer.cs">
+      <DependentUpon>201703021952463_Added Booking Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703022031067_Added Payment Model.cs" />
+    <Compile Include="Migrations\201703022031067_Added Payment Model.Designer.cs">
+      <DependentUpon>201703022031067_Added Payment Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Concert.cs" />
     <Compile Include="Models\ConcertAppContext.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Seat.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -171,6 +187,7 @@
     <Content Include="Content\flatfly.css" />
     <Content Include="Content\bootstrap1.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery.seat-charts.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -181,6 +198,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.seat-charts.js" />
+    <Content Include="Scripts\jquery.seat-charts.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -215,6 +234,11 @@
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Bookings\Create.cshtml" />
+    <Content Include="Views\Bookings\Delete.cshtml" />
+    <Content Include="Views\Bookings\Details.cshtml" />
+    <Content Include="Views\Bookings\Edit.cshtml" />
+    <Content Include="Views\Bookings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -239,6 +263,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702251359561_Add-Migration.resx">
       <DependentUpon>201702251359561_Add-Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703021936089_added seats class.resx">
+      <DependentUpon>201703021936089_added seats class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703021952463_Added Booking Class.resx">
+      <DependentUpon>201703021952463_Added Booking Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703022031067_Added Payment Model.resx">
+      <DependentUpon>201703022031067_Added Payment Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
