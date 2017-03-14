@@ -143,21 +143,21 @@
             return num * 24.99;
         }
 
-        //$(window).load(function() {
-        //    $.ajax({
-        //        url: '/User/GetUserID',
-        //        method: 'GET',
-        //        success: function(data) {
-        //            if (data == 0) {
-        //                alert('You must be logged in!');
-        //                return window.location.href = "/User/Login";
-        //            } else {
-        //                return document.getElementById('UserId').value = data;
-        //            }
+        $(window).load(function() {
+            $.ajax({
+                url: '/User/GetUserID',
+                method: 'GET',
+                success: function(data) {
+                    if (data == 0) {
+                        alert('You must be logged in!');
+                        return window.location.href = "/User/Login";
+                    } else {
+                        return document.getElementById('UserId').value = data;
+                    }
 
-        //        }
-        //    });
-        //});
+                }
+            });
+        });
 
     </script>
 }

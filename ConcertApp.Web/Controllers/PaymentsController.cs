@@ -10,130 +10,107 @@ using ConcertApp.Web.Models;
 
 namespace ConcertApp.Web.Controllers
 {
-    public class BookingsController : Controller
+    public class PaymentsController : Controller
     {
         private ConcertAppContext db = new ConcertAppContext();
-        //private ConcertApp.Web.Models.ConcertAppContext db = new ConcertAppContext();
 
-        // GET: Bookings
+        // GET: Payments
         public ActionResult Index()
         {
-            int userid = -1;
-            if (Session["UserID"].ToString() != null)
-            {
-                userid = Convert.ToInt16(Session["UserID"].ToString());
-                return View(db.Bookings.Where(b => b.UserId == userid).ToList());
-            }
-            return View(db.Bookings.ToList());
+            return View(db.Payments.ToList());
         }
 
-        // GET: Bookings/Details/5
+        // GET: Payments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
+            Payment payment = db.Payments.Find(id);
+            if (payment == null)
             {
                 return HttpNotFound();
             }
-            return View(booking);
+            return View(payment);
         }
 
-        // GET: Bookings/Create
+        // GET: Payments/Create
         public ActionResult Create()
         {
-            var concert = (from m in db.Concerts select m).ToList();
-
-            ViewBag.Concert = concert;
-
-            ViewBag.ConcertId = TempData["ConcertId"];
-            ViewBag.ConcertName = TempData["ConcertName"];
-
             return View();
         }
 
-        // POST: Bookings/Create
+        // POST: Payments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public string Create([Bind(Include = "BookingId,ConcertId,UserId,Seats,Price")] Booking Booking)
+        public ActionResult Create([Bind(Include = "PaymentId,SeatId,ConcertId,UserId,CardType,CardNumber,ExpiryDate,Price")] Payment payment)
         {
             if (ModelState.IsValid)
             {
-                Booking.UserId = Convert.ToInt16(Session["UserId"]);
-                db.Bookings.Add(Booking);
+                db.Payments.Add(payment);
                 db.SaveChanges();
-
-               int userId = Convert.ToInt16(@Session["UserID"].ToString());
-
-               string name = (from n in db.Users
-                               where n.UserId == userId
-                              select n.FirstName + " " + n.LastName).SingleOrDefault();
+                return RedirectToAction("Index");
             }
-            {
 
-            }
-            //return View(Booking);
-            return "Booking Added Successfully";
+            return View(payment);
         }
 
-        // GET: Bookings/Edit/5
+        // GET: Payments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
+            Payment payment = db.Payments.Find(id);
+            if (payment == null)
             {
                 return HttpNotFound();
             }
-            return View(booking);
+            return View(payment);
         }
 
-        // POST: Bookings/Edit/5
+        // POST: Payments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookingId,ConcertId,UserId,Seats,Price")] Booking booking)
+        public ActionResult Edit([Bind(Include = "PaymentId,SeatId,ConcertId,UserId,CardType,CardNumber,ExpiryDate,Price")] Payment payment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(booking).State = EntityState.Modified;
+                db.Entry(payment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(booking);
+            return View(payment);
         }
 
-        // GET: Bookings/Delete/5
+        // GET: Payments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
+            Payment payment = db.Payments.Find(id);
+            if (payment == null)
             {
                 return HttpNotFound();
             }
-            return View(booking);
+            return View(payment);
         }
 
-        // POST: Bookings/Delete/5
+        // POST: Payments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Booking booking = db.Bookings.Find(id);
-            db.Bookings.Remove(booking);
+            Payment payment = db.Payments.Find(id);
+            db.Payments.Remove(payment);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -28,6 +28,7 @@
                     @if (Session["isLoggedIn"] != null && Session["isLoggedIn"].ToString() == "True")
                     {
                         <li>@Html.ActionLink("Sign Out", "SignOut", "Account")</li>
+                        <li>@Html.ActionLink("My Bookings", "Index", "Bookings")</li>
                     }
                     else
                     {
@@ -36,13 +37,14 @@
 
                     @if (Session["isLoggedIn"] != null && Session["isAdmin"].ToString() == "True")
                     {
-                        <li>@Html.ActionLink("Manage Concerts", "Index", "Concert")</li>
-                        <li>@Html.ActionLink("Manage Users", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Concerts", "Index", "Concert")</li>
+                        <li>@Html.ActionLink("Users", "Index", "Account")</li>
+                        <li>@Html.ActionLink("Bookings", "Index", "Bookings")</li>
                     }
                     @*                    <li>@Html.ActionLink("Add Concert", "AddConcert", "Concert")</li>*@
                     @if (Session["userId"] != null)
                     {
-                        <li>Hello @Session["fullname"].ToString()</li>
+                        <li><span class="label label-success">Hello @Session["fullname"].ToString()</span></li>
                     }
                 </ul>
                 <div class="col-sm-3 col-md-3 pull-right">
