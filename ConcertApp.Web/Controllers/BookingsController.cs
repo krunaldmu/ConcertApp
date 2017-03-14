@@ -46,7 +46,11 @@ namespace ConcertApp.Web.Controllers
         public ActionResult Create()
         {
             var concert = (from m in db.Concerts select m).ToList();
+
             ViewBag.Concert = concert;
+
+            ViewBag.ConcertId = TempData["ConcertId"];
+            ViewBag.ConcertName = TempData["ConcertName"];
 
             return View();
         }
@@ -64,11 +68,11 @@ namespace ConcertApp.Web.Controllers
                 db.Bookings.Add(Booking);
                 db.SaveChanges();
 
-               int id = Convert.ToInt16(@Session["UserID"].ToString());
+               int userId = Convert.ToInt16(@Session["UserID"].ToString());
 
-                string name = (from n in db.Users
-                               where n.UserId == id
-                               select n.FirstName + " " + n.LastName).SingleOrDefault();
+               string name = (from n in db.Users
+                               where n.UserId == userId
+                              select n.FirstName + " " + n.LastName).SingleOrDefault();
             }
             return View(Booking);
         }

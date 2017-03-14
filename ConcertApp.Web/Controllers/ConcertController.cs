@@ -92,12 +92,17 @@ namespace ConcertApp.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Concert Concert = db.Concerts.Find(id);
-            if (Concert == null)
+            Concert concert = db.Concerts.Find(id);
+            if (concert != null)
+            {
+                TempData["ConcertId"] = concert.ConcertId;
+                TempData["ConcertName"] = concert.Title;
+            }
+            if (concert == null)
             {
                 return HttpNotFound();
             }
-            return View(Concert);
+            return View(concert);
         }
 
         //GET: Concert/Delete
