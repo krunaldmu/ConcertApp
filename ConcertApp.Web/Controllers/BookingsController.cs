@@ -71,7 +71,7 @@ namespace ConcertApp.Web.Controllers
                int userId = Convert.ToInt16(@Session["UserID"].ToString());
 
                string name = (from n in db.Users
-                               where n.UserId == userId
+                              where n.UserId == userId
                               select n.FirstName + " " + n.LastName).SingleOrDefault();
             }
             {

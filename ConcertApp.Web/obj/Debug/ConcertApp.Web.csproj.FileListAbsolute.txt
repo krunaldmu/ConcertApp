@@ -45,6 +45,7 @@ C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\System.Net.Http.Formatting.xml
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\System.Web.Http.xml
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\System.Web.Http.WebHost.xml
+C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.csprojResolveAssemblyReference.cache
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.Initial.resources
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.AddedUserEntity.resources
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.AddedIsAdmin.resources
