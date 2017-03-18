@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using ConcertApp.Web.Models;
@@ -60,7 +61,7 @@ namespace ConcertApp.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public string Create([Bind(Include = "BookingId,ConcertId,UserId,Seats,Price")] Booking Booking)
+        public RedirectToRouteResult Create([Bind(Include = "BookingId,ConcertId,UserId,Seats,Price")] Booking Booking)
         {
             if (ModelState.IsValid)
             {
@@ -68,17 +69,42 @@ namespace ConcertApp.Web.Controllers
                 db.Bookings.Add(Booking);
                 db.SaveChanges();
 
-               int userId = Convert.ToInt16(@Session["UserID"].ToString());
+                string email = @Session["EmailAddress"].ToString();
 
-               string name = (from n in db.Users
-                              where n.UserId == userId
-                              select n.FirstName + " " + n.LastName).SingleOrDefault();
-            }
-            {
+                int userId = Convert.ToInt16(@Session["UserID"].ToString());
 
+                string name = (from n in db.Users
+                    where n.UserId == userId
+                    select n.FirstName + " " + n.LastName).SingleOrDefault();
+                try
+                {
+                    MailMessage mail = new MailMessage();
+                    mail.To.Add(email);
+                    mail.From = new MailAddress("concertapp24@gmail.com");
+                    mail.Subject = "CSRS Concert Seat Reservation Confirmation";
+                    mail.Body = "Hi " + name;
+                    mail.Body += "<p> Booking is Confirmed For - " +
+                                db.Concerts.Where(m => m.ConcertId == Booking.ConcertId)
+                                    .SingleOrDefault()
+                                    .Title.ToString() + "</p>";
+                    mail.Body += "<p>Seat Booked - " + Booking.Seats + "</p>";
+                    mail.Body += "<p>You Have Paid - &pound;" + Booking.Price + "</p>";
+                    mail.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Credentials = new NetworkCredential("concertapp24@gmail.com","myconcertapp");
+                    smtp.Port = 587;
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+                }
+                catch (Exception ex)
+                {
+
+                }
+                //return View(Booking);
+                return RedirectToAction("Index");
             }
-            //return View(Booking);
-            return "Booking Added Successfully";
+            return ViewBag;
         }
 
         // GET: Bookings/Edit/5
