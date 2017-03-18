@@ -21,7 +21,7 @@ namespace ConcertApp.Web.Controllers
 
         //POST: Concert/Add
         [HttpPost]
-        public string AddingConcert(ConcertAppContext context)
+        public string Create(ConcertAppContext context)
         {
             string name = Request["name"];
             string category = Request["category"];

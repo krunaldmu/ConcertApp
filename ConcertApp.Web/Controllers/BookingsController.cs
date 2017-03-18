@@ -102,7 +102,7 @@ namespace ConcertApp.Web.Controllers
 
                 }
                 //return View(Booking);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index" , "Home");
             }
             return ViewBag;
         }

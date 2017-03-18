@@ -1,11 +1,8 @@
 ﻿@model ConcertApp.Web.Models.Concert
-
 @{
     ViewBag.Title = "Details";
 }
-
 <h2>@Html.DisplayFor(model => model.Title)</h2>
-
 <div>
     <h4>Concert</h4>
     <hr />
@@ -13,56 +10,55 @@
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Title)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Category)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Category)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.DateTime)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.DateTime)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Location)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Location)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Price)
         </dt>
-
         <dd>
             £@Html.DisplayFor(model => model.Price)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
-
     </dl>
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ConcertId }) |*@
     @*    @Html.ActionLink("Back to List", "Index")*@
-    @Html.ActionLink("Book", "Create", "Bookings", null, new { @class = "btn btn-default" })
+    @if (@Session["UserID"] != null)
+    {
+        @Html.ActionLink("Book", "Create", "Bookings", null, new { @class = "btn btn-default" })
+    }
+    else
+    {
+    <p>
+        Please @Html.ActionLink("Sign In", "SignIn", "Account") to Book This Event
+        
+    </p>
+    }
+
     @Html.ActionLink("Back to List", null, null, null, new { href = Request.UrlReferrer })
 </p>

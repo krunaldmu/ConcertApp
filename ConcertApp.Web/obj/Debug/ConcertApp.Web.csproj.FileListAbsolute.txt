@@ -1,14 +1,14 @@
+C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\VBCSCompiler.exe
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\csc.exe
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\Microsoft.CSharp.Core.targets
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\System.Collections.Immutable.dll
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\System.Reflection.Metadata.dll
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\vbc.exe
-C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\VBCSCompiler.exe
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\ConcertApp.Web.dll.config
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\ConcertApp.Web.dll
@@ -45,7 +45,6 @@ C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\System.Net.Http.Formatting.xml
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\System.Web.Http.xml
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\bin\System.Web.Http.WebHost.xml
-C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.csprojResolveAssemblyReference.cache
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.Initial.resources
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.AddedUserEntity.resources
 C:\Users\Krunal\documents\visual studio 2015\Projects\ConcertApp\ConcertApp.Web\obj\Debug\ConcertApp.Web.Migrations.AddedIsAdmin.resources
