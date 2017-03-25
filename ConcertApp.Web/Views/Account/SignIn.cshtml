@@ -5,10 +5,10 @@
     ViewBag.Title = "Sign In";
 }
 <br/>
-@if (Session["userNotFound"] != null && Session["userNotFound"].ToString() == "True")
+@if (TempData["userNotFound"] != null && TempData["userNotFound"].ToString() == "True")
 {
     <div class="alert alert-danger">
-        <p>User Not Found!</p>
+        <p>User Not Found</p>
     </div>
 }
 
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <input type="submit" value="Sign In" class="btn btn-info btn-block">
-
+                    <p></p>@Html.ActionLink("Create New Account", "Register", "Account")
                 </form>
             </div>
         </div>

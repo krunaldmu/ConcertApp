@@ -68,7 +68,7 @@ namespace ConcertApp.Web.Controllers
         }
 
         [HttpPost]
-        public string RegisterUser(ConcertAppContext context)
+        public RedirectToRouteResult RegisterUser(ConcertAppContext context)
         {
             string firstName = Request["firstName"];
             string lastName = Request["lastname"];
@@ -95,8 +95,8 @@ namespace ConcertApp.Web.Controllers
             {
 
             }
-            
-            return "User Registered Successfully";
+            TempData["notice"] = "User Registered Successfully";
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -111,7 +111,7 @@ namespace ConcertApp.Web.Controllers
 
             if (isPasswordCorrect == false)
             {
-                Session["userNotFound"] = true;
+                TempData["userNotFound"] = true;
                 return RedirectToAction("SignIn");
             }
             else

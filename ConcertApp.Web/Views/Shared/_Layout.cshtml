@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,7 +16,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("CSRS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Leicester Concert", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -44,7 +44,10 @@
                     @*                    <li>@Html.ActionLink("Add Concert", "AddConcert", "Concert")</li>*@
                     @if (Session["userId"] != null)
                     {
-                        <li><span class="label label-success">Hello @Session["fullname"].ToString()</span></li>
+                        <li>
+                            <span class="label label-success"><span class="glyphicon glyphicon-user"></span> Hello @Session["fullname"].ToString()</span>
+                            
+                        </li>
                     }
                 </ul>
                 <div class="col-sm-3 col-md-3 pull-right">
@@ -60,9 +63,9 @@
                     {
                         <font color="whitesmoke"><b>Search By:</b></font>
                         @Html.RadioButton("searchBy", "Title", true)
-                        <text>Title</text>
+                        <font color="whitesmoke"><text>Title</text></font>
                         @Html.RadioButton("searchBy", "Category")
-                        <text>Category</text>
+                        <font color="whitesmoke"><text>Category</text></font>
                         @Html.TextBox("search")
                         <input type="submit" value="Search"/>
                     }
