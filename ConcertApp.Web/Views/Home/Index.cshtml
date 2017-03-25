@@ -10,6 +10,12 @@
     <p>@TempData["notice"]</p>
     </div>
 }
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">
+        <p>@TempData["message"]</p>
+    </div>
+}
 
         <h2>Home</h2>
         <div class="container">

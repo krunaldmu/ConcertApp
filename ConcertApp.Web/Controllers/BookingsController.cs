@@ -102,6 +102,7 @@ namespace ConcertApp.Web.Controllers
 
                 }
                 //return View(Booking);
+                TempData["message"] = "Booking Successfully. You Should Get Email Confirmation Shortly.";
                 return RedirectToAction("Index" , "Home");
             }
             return RedirectToAction("Create", "Bookings");
