@@ -47,7 +47,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Seats, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Seats, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Seats, new { htmlAttributes = new { @required = "" } })
                 @Html.ValidationMessageFor(model => model.Seats, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -55,21 +55,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @required = "" } })
                 @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Confirm" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "Home")
 </div>
 
 @section scripts{
@@ -96,7 +96,7 @@
                 seats: {
                     a: {
                         price: 24.99,
-                        classes: 'front-seat' //your custom CSS class
+                        classes: 'front-seat'
                     },
                     b: {
                         price: 49.99,

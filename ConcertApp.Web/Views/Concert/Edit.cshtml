@@ -80,3 +80,14 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script type="text/javascript">
+        $(function () {
+            $('#DateTime').datetimepicker({
+                locale: 'en',
+                format: 'DD-MM-YYYY HH:mm:ss'
+            });
+        });
+</script>

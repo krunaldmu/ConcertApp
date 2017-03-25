@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="price" id="price" class="form-control input-sm" placeholder="Price" required="">
+                        <input type="number" step="any" value="24.99" min="24.99" max="24.99" name="price" id="price" class="form-control input-sm" placeholder="Price" required="">
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -49,3 +49,14 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script type="text/javascript">
+        $(function () {
+            $('#dateTime').datetimepicker({
+                locale: 'en',
+                format: 'DD-MM-YYYY HH:mm:ss',
+                minDate: new Date()
+            });
+        });
+</script>

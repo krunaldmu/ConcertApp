@@ -1,6 +1,9 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    ViewBag.Title = "Sign In";
+}
 <br/>
 @if (Session["userNotFound"] != null && Session["userNotFound"].ToString() == "True")
 {

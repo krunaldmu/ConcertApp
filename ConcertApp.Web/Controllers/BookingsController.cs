@@ -104,7 +104,7 @@ namespace ConcertApp.Web.Controllers
                 //return View(Booking);
                 return RedirectToAction("Index" , "Home");
             }
-            return ViewBag;
+            return RedirectToAction("Create", "Bookings");
         }
 
         // GET: Bookings/Edit/5
