@@ -21,7 +21,7 @@ namespace ConcertApp.Web.Controllers
 
         //POST: Concert/Add
         [HttpPost]
-        public string Create(ConcertAppContext context)
+        public RedirectToRouteResult Create(ConcertAppContext context)
         {
             string name = Request["name"];
             string category = Request["category"];
@@ -51,7 +51,8 @@ namespace ConcertApp.Web.Controllers
             {
 
             }
-            return "Concert Added Successfully";
+            TempData["success"] = "Concert Added Successfully";
+            return RedirectToAction("Index", "Concert");
         }
 
         // GET: Concert/Edit
