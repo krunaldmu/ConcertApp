@@ -16,12 +16,12 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-12">
                                 <div class="form-group">
-                                    <input type="text" name="firstName" id="first_name" class="form-control input-sm" placeholder="First Name" required="">
+                                    <input type="text" name="firstName" id="first_name" class="form-control input-sm" placeholder="First Name" required="" pattern="[A-Za-z]+" title="First Name Accept Letters Only">
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-12">
                                 <div class="form-group">
-                                    <input type="text" name="lastName" id="last_name" class="form-control input-sm" placeholder="Last Name" required="">
+                                    <input type="text" name="lastName" id="last_name" class="form-control input-sm" placeholder="Last Name" required="" pattern="[A-Za-z]+" title="Last Name Accept Letters Only">
                                 </div>
                             </div>
                         </div>
@@ -31,12 +31,12 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-12">
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" required="">
+                                    <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="At least One Number, One Uppercase, One Lowercase Letters, and at Least 6 or More Characters Required">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                                <input type="number" name="mobileNumber" id="mobileNumber" class="form-control input-sm" placeholder="Mobile Number" required="">
+                                <input type="tel" name="mobileNumber" id="mobileNumber" class="form-control input-sm" placeholder="Mobile Number" required="" pattern="^\d{10}$" title="10 Numeric Characters Only">
                         </div>
                         <input type="submit" value="Register" class="btn btn-info btn-block">
 
