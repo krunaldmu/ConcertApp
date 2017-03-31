@@ -147,6 +147,7 @@ namespace ConcertApp.Web.Controllers
             User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
+            TempData["notice"] = "User Deleted Successfully";
             return RedirectToAction("Index");
         }
 
@@ -181,7 +182,7 @@ namespace ConcertApp.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
-            [Bind(Include = "UserId, FirstName, Lastname, Password, EmailAddress, MobileNumber")] User user)
+            [Bind(Include = "UserId, FirstName, Lastname, Password, EmailAddress, MobileNumber, IsAdmin")] User user)
         {
             if (ModelState.IsValid)
             {

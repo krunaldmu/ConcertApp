@@ -41,12 +41,10 @@
                         <li>@Html.ActionLink("Users", "Index", "Account")</li>
                         @*<li>@Html.ActionLink("Bookings", "Index", "Bookings")</li>*@
                     }
-                    @*                    <li>@Html.ActionLink("Add Concert", "AddConcert", "Concert")</li>*@
                     @if (Session["userId"] != null)
                     {
                         <li>
                             <span class="label label-success"><span class="glyphicon glyphicon-user"></span> Hello @Session["fullname"].ToString()</span>
-                            
                         </li>
                     }
                 </ul>
@@ -66,8 +64,11 @@
                         <font color="whitesmoke"><text>Title</text></font>
                         @Html.RadioButton("searchBy", "Category")
                         <font color="whitesmoke"><text>Category</text></font>
-                        @Html.TextBox("search")
-                        <input type="submit" value="Search"/>
+                        @*@Html.TextBox("search")*@
+                        <input type="text" name="search" id="search" placeholder="Search" required="">
+                        <button type="submit">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
                     }
                 </div>
              </div>

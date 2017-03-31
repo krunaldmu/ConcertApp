@@ -130,6 +130,7 @@ namespace ConcertApp.Web.Controllers
             Concert concert = db.Concerts.Find(id);
             db.Concerts.Remove(concert);
             db.SaveChanges();
+            TempData["success"] = "Concert Deleted Successfully";
             return RedirectToAction("Index");
         }
 

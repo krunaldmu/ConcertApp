@@ -1,7 +1,14 @@
-﻿@model IEnumerable<ConcertApp.Web.Models.Booking>
+﻿@model IEnumerable<ConcertApp.Web.ViewModel.BookingViewModel>
 
 @{
     ViewBag.Title = "Index";
+}
+</br>
+@if (TempData["delete"] != null)
+{
+    <div class="alert alert-success">
+        <p>@TempData["delete"]</p>
+    </div>
 }
 
 <h2>Bookings</h2>
@@ -15,10 +22,7 @@
             @Html.DisplayNameFor(model => model.BookingId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ConcertId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserId)
+            @Html.DisplayNameFor(model => model.ConcertName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Seats)
@@ -35,10 +39,7 @@
             @Html.DisplayFor(modelItem => item.BookingId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ConcertId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserId)
+            @Html.DisplayFor(modelItem => item.ConcertName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Seats)
@@ -47,8 +48,8 @@
             £@Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {id = item.BookingId}) |
-            @Html.ActionLink("Details", "Details", new {id = item.BookingId}) |
+            @*@Html.ActionLink("Edit", "Edit", new {id = item.BookingId}) |*@
+            @*@Html.ActionLink("Details", "Details", new {id = item.BookingId}) |*@
             @Html.ActionLink("Delete", "Delete", new {id = item.BookingId})
         </td>
     </tr>

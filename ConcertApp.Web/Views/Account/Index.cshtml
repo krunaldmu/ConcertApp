@@ -3,7 +3,13 @@
 @{
     ViewBag.Title = "Manage Users";
 }
-
+</br>
+@if (TempData["notice"] != null)
+{
+    <div class="alert alert-success">
+        <p>@TempData["notice"]</p>
+    </div>
+}
 <h2>Manage Users</h2>
 
 <p>

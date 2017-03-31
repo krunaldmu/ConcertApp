@@ -8,6 +8,8 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using ConcertApp.Web.Models;
+using ConcertApp.Web.Services;
+using ConcertApp.Web.ViewModel;
 
 namespace ConcertApp.Web.Controllers
 {
@@ -15,6 +17,7 @@ namespace ConcertApp.Web.Controllers
     {
         private ConcertAppContext db = new ConcertAppContext();
         //private ConcertApp.Web.Models.ConcertAppContext db = new ConcertAppContext();
+        ConcertService concertService = new ConcertService();
 
         // GET: Bookings
         public ActionResult Index()
@@ -23,7 +26,20 @@ namespace ConcertApp.Web.Controllers
             if (Session["UserID"].ToString() != null)
             {
                 userid = Convert.ToInt16(Session["UserID"].ToString());
-                return View(db.Bookings.Where(b => b.UserId == userid).ToList());
+                //return View(db.Bookings.Where(b => b.UserId == userid).ToList());
+                var allBookings = db.Bookings.Where(b => b.UserId == userid).ToList();
+                List<BookingViewModel> bookingViewModels = new List<BookingViewModel>();
+                foreach (var booking in allBookings)
+                {
+                    BookingViewModel bookingViewModel = new BookingViewModel();
+                    bookingViewModel.BookingId = booking.BookingId;
+                    bookingViewModel.ConcertName = concertService.GetConcertName(booking.ConcertId);
+                    bookingViewModel.Username = booking.UserId.ToString();
+                    bookingViewModel.Seats = booking.Seats;
+                    bookingViewModel.Price = booking.Price;
+                    bookingViewModels.Add(bookingViewModel);
+                }
+                return View(bookingViewModels);
             }
             return View(db.Bookings.ToList());
         }
@@ -162,6 +178,8 @@ namespace ConcertApp.Web.Controllers
             Booking booking = db.Bookings.Find(id);
             db.Bookings.Remove(booking);
             db.SaveChanges();
+
+            TempData["delete"] = "Booking Deleted Successfully";
             return RedirectToAction("Index");
         }
 
