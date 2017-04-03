@@ -46,8 +46,6 @@
     </dl>
 </div>
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ConcertId }) |*@
-    @*    @Html.ActionLink("Back to List", "Index")*@
     @if (@Session["UserID"] != null)
     {
         @Html.ActionLink("Book", "Create", "Bookings", null, new { @class = "btn btn-default" })

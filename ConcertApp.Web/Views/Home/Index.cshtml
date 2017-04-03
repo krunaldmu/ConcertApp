@@ -70,12 +70,8 @@
                         </a>
                     </div>
                 </div>
-                @*
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-                *@
             </header>
             <p>
-                @*    @Html.ActionLink("Add Concert", "AddConcert", "Concert")*@
             </p>
             <table class="table table-hover table-bordered">
                 <tr class="active">
@@ -133,15 +129,8 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-                            @*<td>
-                                    @Html.ActionLink("Edit", "Edit", new { id=item.ConcertId }) |
-                                    @Html.ActionLink("Details", "Details", new { id=item.ConcertId }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id=item.ConcertId })
-                                </td>*@
                             <td>
-                                @*@Html.ActionLink("Edit", "Edit","Concert", new { id = item.ConcertId },null) |*@
                                 @Html.ActionLink("Details", "Details", "Concert", new { id = item.ConcertId }, null)
-                                @*@Html.ActionLink("Delete", "Delete", "Concert", new { id = item.ConcertId }, null)*@
                             </td>
                         </tr>
                     }

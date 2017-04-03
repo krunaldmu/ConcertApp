@@ -60,11 +60,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.ConcertId }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ConcertId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ConcertId })
-                </td>*@
             <td>
                 @Html.ActionLink("Edit", "Edit", "Concert", new { id = item.ConcertId }, null) |
                 @Html.ActionLink("Details", "Details", new { id = item.ConcertId }) |

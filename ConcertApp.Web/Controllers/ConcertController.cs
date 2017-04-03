@@ -67,6 +67,7 @@ namespace ConcertApp.Web.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["success"] = "Concert Edit Successfully";
             return View(Concert);
         }
 
@@ -82,7 +83,6 @@ namespace ConcertApp.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-           //return RedirectToAction("Index");
             return View("Index");
         }
 
@@ -138,13 +138,5 @@ namespace ConcertApp.Web.Controllers
         {
             return View( db.Concerts.ToList());
         }
-
-//        public ActionResult SearchIndex(string searchBy, string search)
-//        {
-//            if (searchBy == "Category")
-//                return View(db.Concerts.Where(x => x.Category == search || search == null).ToList());
-//            else
-//                return View(db.Concerts.Where(x => x.Title.StartsWith(search) || search == null).ToList());
-//        }
     }
 }
